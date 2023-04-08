@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: typho.org website
-email: admin@typho.org
+title: arewedigitaltypesettingyet.com website
+email: admin@lukas-prokop.at
 description: >- # this means to ignore newlines until "baseurl:"
-  The typho.org typesetting software website
+  Are we digital typesetting yet?
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://typho.org/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://arewedigitaltypesettingyet.com/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: tajpulo
-github_username: tajpuulo
+github_username: tajpulo
 permalink: "/articles/:slug"
 
 feed:
@@ -33,21 +33,13 @@ feed:
 
 defaults:
   - scope:
-      path: "_assets/images"
+      path: "assets/images"
     values:
       image: true
   - scope:
-      path: "_assets/fonts"
+      path: "assets/fonts"
     values:
       font: true
-  - scope:
-      path: "_assets/layouts"
-    values:
-      stylesheet: true
-  - scope:
-      path: "_assets/presentations"
-    values:
-      presentation: true
 
 
 # Build settings
