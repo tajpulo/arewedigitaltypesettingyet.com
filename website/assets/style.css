@@ -127,7 +127,7 @@
 }
 
 /*@media only screen and (max-device-width: 850px)*/
-@media (width <= 1000px) and (orientation: landscape) {
+@media (width <= 600px) or (orientation: portrait) {
   section {
     width: auto;
   }
