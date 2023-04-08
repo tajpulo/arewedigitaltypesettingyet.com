@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "Noto Serif";
+  font-weight: normal;
+  src: url("fonts/noto/NotoSerif-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  font-weight: bold;
+  src: url("fonts/noto/NotoSerif-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  font-style: italic;
+  src: url("fonts/noto/NotoSerif-MediumItalic.ttf") format("truetype");
+}
+
+
+
+
+@media all {
+  /* * { outline: 1px red solid !important; visibility: visible !important }*/
+
+  body {
+    font-size: 18px;
+    font-family: "Noto Serif", Helvetica, serif;
+  }
+
+  section {
+    max-width: 60rem;
+    margin: auto;
+  }
+
+  dt {
+    font-style: italic;
+  }
+
+  h2 { margin-top: 5rem; }
+
+  .head {
+    font-family: "Noto Serif", Verdana, Arial, sans-serif;
+    min-height: 10vw; /*150px;*/
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+
+  .head h1 {
+    color: #300;
+    padding: 50px;
+  }
+
+  .keyword {
+    color: #999;
+    text-decoration: underline;
+  }
+
+/*
+  .ecosystem li {
+    display: inline-block;
+    min-width: 25%;
+    min-height: 100px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid brown;
+    background-color: #EEE;
+    text-align: center;
+  }
+
+  .ecosystem li a:link,
+  .ecosystem li a:visited {
+    color: black;
+    font-weight: bold;
+    line-height: 2rem;
+    padding: 2rem;
+  }
+*/
+
+
+  .ecosystem {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    align-content: flex-start;
+    gap: 2rem;
+  }
+  ul.ecosystem { padding-left: 0rem; }
+  .ecosystem li {
+    display: block;
+    flex-basis: 25%;
+    min-height: 6rem;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+  ul.ecosystem li { list-style: none; }
+  .ecosystem h3 {
+    margin: 0;
+    color: black;
+    font-weight: bold
+  }
+  .ecosystem li:nth-child(2n + 1) h3 {
+    margin: 0;
+    color: #555;
+    font-weight: bold
+  }
+  .ecosystem li:nth-child(2n) {
+    background-color: #CCC;
+  }
+  .ecosystem li:nth-child(2n + 1) {
+    background-color: #EEE;
+  }
+
+  .metadata-input, .metadata-output { text-decoration: underline; }
+
+  .foot {
+    min-height: 130px;
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+  }
+}
+
+/*@media only screen and (max-device-width: 850px)*/
+@media (width <= 1000px) and (orientation: landscape) {
+  section {
+    width: auto;
+  }
+
+  .ecosystem {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+  }
+  .ecosystem li {
+    flex-basis: 100%;
+  }
+}

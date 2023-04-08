@@ -1,0 +1,36 @@
+= arewedigitaltypesettingyet.com
+
+author:: tajpulo
+version:: 3 (2023-04-08)
+issue-tracking:: link:https://github.com/tajpulo/arewedigitaltypesettingyet.com/issues[on github]
+
+link:https://arewedigitaltypesettingyet.com/[arewedigitaltypesettingyet.com] tries to give users an overview over existing solutions.
+
+== Who should use it?
+
+Everyone who cares about digital typesetting.
+
+== How does one use it?
+
+* Visit the website to inform yourself about digital typesetting solutions
+* If you are a web developer, feel free to submit web design improvements
+* If you are a maintainer of a solution, please help to get some facts in the file link:https://github.com/tajpulo/arewedigitaltypesettingyet.com/blob/main/website/_data/projects.yml[_data/projects.yml] straight
+
+Provide a pull request, I will deploy it.
+
+== How does one run it?
+
+If you actually want to build the website, all jekyll files should be in the repository, but I did not document the steps.
+I execute …
+
+```
+bundle exec jekyll build --source website --destination _site --trace --strict_front_matter
+```
+
+in the root directory to generate the website.
+
+== Changelog
+
+v1:: data only showed links to the projects
+v2:: more information about each project was added, website lists {license, contributors, publication date, I/O formats}
+v3:: implemented feedback by caleb

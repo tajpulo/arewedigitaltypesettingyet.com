@@ -1,0 +1,390 @@
+# TODO Sphinx, Antora, WeasyPrint, rstgen, Quarto, crowbook, pollen, naturaldocs, wkhtmltopdf, Lout, Dbook, Apache FOP, quad, SATySFi, spandex, brandon-rhodes/python-typesetting, tux21b/imp
+# TODO roff family: nroff, troff, groff, ditroff, neatroff, heirloom-doctools
+
+# TODO LaTeχ family: LaTeχ, XeTeχ, ConTeχt, LuaLaTeχ, opTeχ
+- name: Teχ
+  wysiwyg: false
+  published: 1978
+  contributors:
+    - Donald E. Knuth
+  built_with:
+    - WEB
+    - Pascal
+  input:
+    - custom syntax
+  output:
+    - DVI
+  license: public domain, rename on modification
+  url: https://tug.org/
+  criteria_score:
+    global_scripts: 2
+    domainspecific_notations: 3
+    single_source_publishing_input: 1
+    single_source_publishing_output: 2
+    easy_installation: 2
+    separation_of_concerns: 1
+    opentype: 1
+    foss: 3
+    automation: 2
+    a11n_l10n_i18n: 2
+    performance: 3
+    web_print: 1
+  criteria_judgment:
+    global_scripts: "Teχ has shown to be able to produce documents in various languages. However, depending on your templates, you may have to use a special syntax for diacritics and install additional packages to typeset text in CJK."
+    domainspecific_notations: "Teχ has a rich history of packages for various domains, from linguistics to computer science. Images are supported as well"
+    single_source_publishing_input: "Teχ is a macro-based language and the only one supported as input"
+    single_source_publishing_output: "DVI, PostScript, and PDF are Teχ's output formats. No reflowable document formats are supported"
+    easy_installation: "Teχ is available in many operating systems through distributions like MiKTeχ, Teχlive, and MacTeχ"
+    separation_of_concerns: "Teχ makes no distinction between program logic, style, and content"
+    opentype: "no support"
+    foss: "LaTeX project public license is considered as free software license by OSI"
+    automation: "Many projects extract data from various sources and serializes it to Teχ input to generate output documents, but serialization to Teχ is in fact difficult"
+    a11n_l10n_i18n: "The Teχ project has an active community working on Tagged PDF support, but Teχ lacks packages for a11n/l10n/i18n support since the community moves on with projects like LaTeχ and LuaLaTeχ"
+    performance: "Teχ has very low requirements and acceptable performance characterics assuming not too many macro expansions are used"
+    web_print: "Teχ only addresses print"
+
+- name: typst
+  wysiwyg: false
+  published: 2023
+  contributors:
+    - Martin Haug
+    - Laurenz Mädje
+  built_with:
+    - rust
+  input:
+    - custom syntax
+  output:
+    - PDF
+    - PNG
+  license: Apache 2
+  url: https://typst.app/
+
+  criteria_score:
+    global_scripts: 2
+    domainspecific_notations: 2
+    single_source_publishing_input: 1
+    single_source_publishing_output: 2
+    easy_installation: 3
+    separation_of_concerns: 2
+    opentype: 1
+    foss: 3
+    automation: 2
+    a11n_l10n_i18n: 2
+    performance: 3
+    web_print: 1
+  criteria_judgment:
+    global_scripts: "typst has basic support for LTR scripts, has native Unicode support, but support for CJK scripts is limited"
+    domainspecific_notations: "typst immediately addressed math notation, other domain-specific notations are partially supported by generating and including images"
+    single_source_publishing_input: "A custom input language based on Markdown was invented which is documented on typst.app/docs/"
+    single_source_publishing_output: "PDF and PNG are supported. No reflowable document formats are supported"
+    easy_installation: "static executable"
+    separation_of_concerns: "content layer, layout layer, computation layer"
+    opentype: "basic support"
+    foss: "Apache 2.0 license"
+    automation: "Data can be serialized to typst input language, but the language does not have a formal specification"
+    a11n_l10n_i18n: "initial support but the standard library still needs to grow for full support"
+    performance: "incremental compilation seems to work fine"
+    web_print: "typst only addresses print"
+
+- name: SILE
+  wysiwyg: false
+  published: 2014-10
+  contributors:
+    - Simon Cozens
+    - Caleb Maclennan
+  built_with:
+    - Lua
+    - C++
+  input:
+    - custom language (Teχ-like)
+    - XML
+  output:
+    - PDF
+  license: MIT license
+  url: https://sile-typesetter.org/
+
+  criteria_score:
+    global_scripts: 3
+    domainspecific_notations: 2
+    single_source_publishing_input: 2
+    single_source_publishing_output: 1
+    easy_installation: 2
+    separation_of_concerns: 2
+    opentype: 3
+    foss: 3
+    automation: 3
+    a11n_l10n_i18n: 1
+    performance: 2
+    web_print: 1
+  criteria_judgment:
+    global_scripts: "SILE was developed for many scripts in mind, in particular Latin and Japanese"
+    domainspecific_notations: "SILE recently got math support through MathJax, but lacks other domains"
+    single_source_publishing_input: "Can only handle SILE input files, but it should be easy to provide a Lua file which provides the parsed document instead of its own parser"
+    single_source_publishing_output: "PDF only"
+    easy_installation: "Homebrew, Docker, Nix flake, … and shipped in many package managers. But compilation is non-trivial"
+    separation_of_concerns: "Content and layout in custom language, program logic in Lua"
+    opentype: "Excellent support"
+    foss: "MIT license"
+    automation: "Data can be serialized to SILE input language, but the language does not have a formal specification"
+    a11n_l10n_i18n: "You need to import appropriate Lua packages for good support"
+    performance: "acceptable performance was reported, but I cannot judge for large documents"
+    web_print: "SILE only addresses print"
+
+- name: speedata publisher
+  wysiwyg: false
+  published: 2011-07
+  contributors:
+    - Patrick Gundlach
+  built_with:
+    - Go
+    - Lua
+    - LuaLaTeχ
+  input:
+    - XML
+  output:
+    - PDF
+  license: AGPL-3.0
+  url: https://www.speedata.de/
+
+  criteria_score:
+    global_scripts: 1
+    domainspecific_notations: 2
+    single_source_publishing_input: 3
+    single_source_publishing_output: 1
+    easy_installation: 2
+    separation_of_concerns: 2
+    opentype: 1
+    foss: 3
+    automation: 1
+    a11n_l10n_i18n: 1
+    performance: 3
+    web_print: 2
+  criteria_judgment:
+    global_scripts: "Little experience with non-Latin script support, e.g. vertical typesetting is missing"
+    domainspecific_notations: "Math support is inherited through the LuaLaTeχ dependency"
+    single_source_publishing_input: "XML is a well-established support which can be serialized from various languages, Lua scripts could also provide input data"
+    single_source_publishing_output: "Only PDF support is provided"
+    easy_installation: "pre-compiled binary distributions are downloadable on the website, APT repository provided"
+    separation_of_concerns: "Format-agnostic content, custom XML layout definition, program logic in Lua"
+    opentype: "decent support inherited by LuaLaTeχ"
+    foss: "AGPL-3.0 license"
+    automation: "Data can be easily serialized to XML"
+    a11n_l10n_i18n: "You need to import appropriate Lua packages for good support"
+    performance: "Patrick targets 500 pages per second"
+    web_print: "speedata publisher only addresses print"
+
+- name: Patoline
+  wysiwyg: false
+  published: 2011-07
+  contributors:
+    - Tom Hirschowitz
+    - Pierre-Etienne Meunier
+    - Christophe Raffalli
+  built_with:
+    - OCaml
+  input:
+    - custom language
+  output:
+    - PDF
+    - SVG
+  license: GPL-2.0
+  url: https://patoline.github.io/
+
+  criteria_score:
+    global_scripts: 1
+    domainspecific_notations: 1
+    single_source_publishing_input: 1
+    single_source_publishing_output: 1
+    easy_installation: 1
+    separation_of_concerns: 1
+    opentype: 2
+    foss: 3
+    automation: 2
+    a11n_l10n_i18n: 1
+    performance: 1
+    web_print: 2
+  criteria_judgment:
+    global_scripts: "Only Latin documents have been reported"
+    domainspecific_notations: "Basic math support and image inclusion"
+    single_source_publishing_input: "Wiki/LaTeX/Ocaml"
+    single_source_publishing_output: "PDF, SVG, and dynamic web site"
+    easy_installation: "Installing the OCaml stack can be cumbersome"
+    separation_of_concerns: "content and layout through custom language, program logic through inline OCaml source code"
+    opentype: "basic support through a provided OCaml library"
+    foss: "GPLv2"
+    automation: "the input language does not have a formal specification, but OCaml allows easy extensibility"
+    a11n_l10n_i18n: "No support reported"
+    performance: "unknown, but website lists improvements as major goal"
+    web_print: "Addresses both, but only PDF outputs have been seen"
+
+# TODO verify that PageBot does not just use Sphinx as backend
+- name: PageBot
+  wysiwyg: false
+  published: 2016-10-23
+  contributors:
+    - Buro Petr van Blokland
+    - michielkauwatjoe
+    - felipesanches
+    - davelab6
+    - thomgb
+  built_with:
+    - python3
+  input:
+    - python3
+  output:
+    - PDF
+    - PNG
+    - JPG
+    - SVG
+    - animated GIF
+    - MOV
+    - XML
+  license: MIT
+  url: https://pagebot.readthedocs.io/en/latest/README.html
+
+  criteria_score:
+    global_scripts: 2
+    domainspecific_notations: 1
+    single_source_publishing_input: 1
+    single_source_publishing_output: 1
+    easy_installation: 2
+    separation_of_concerns: 2
+    opentype: 1
+    foss: 3
+    automation: 3
+    a11n_l10n_i18n: 1
+    performance: 1
+    web_print: 1
+  criteria_judgment:
+    global_scripts: "unknown, Unicode support assumed through proper use of HarfBuzz"
+    domainspecific_notations: "text only"
+    single_source_publishing_input: "data supplied through python3, various input languages possible through python packages"
+    single_source_publishing_output: "claimed output formats are impressive"
+    easy_installation: "Python3 is widely-accessible but also native C extensions like uharfbuzz are used"
+    separation_of_concerns: "python3 for everything, so user can build their own abstraction to separate content/layout/logic"
+    opentype: "unknown"
+    foss: "MIT license"
+    automation: "input data through python3, can come from various inputs"
+    a11n_l10n_i18n: "unknown"
+    performance: "unknown"
+    web_print: "claims to address both based on output formats"
+
+- name: yex
+  wysiwyg: false
+  published: 2021-12-23
+  contributors:
+    - Marnanel Thurman
+  built_with:
+    - python3
+  input:
+    - custom language
+  output:
+    - HTML
+    - SVG
+  license: GPL-2.0
+  url: https://gitlab.com/marnanel/yex
+
+  criteria_score:
+    global_scripts: 1
+    domainspecific_notations: 1
+    single_source_publishing_input: 1
+    single_source_publishing_output: 1
+    easy_installation: 2
+    separation_of_concerns: 1
+    opentype: 1
+    foss: 1
+    automation: 1
+    a11n_l10n_i18n: 1
+    performance: 1
+    web_print: 1
+  criteria_judgment:
+    global_scripts: "no support"
+    domainspecific_notations: "math support intended like Teχ"
+    single_source_publishing_input: "Teχ only"
+    single_source_publishing_output: "acc. to the output/ directory, SVG and HTML output might be possible"
+    easy_installation: "Python3 is widely-accessible but also native C extensions like lxml are used"
+    separation_of_concerns: "Teχ for everything"
+    opentype: "no support"
+    foss: "GPLv2"
+    automation: "it should be easy to provide the input data through python, but this is undocumented"
+    a11n_l10n_i18n: "no support reported"
+    performance: "terrible, plans exists to improve it by caching partial results"
+    web_print: "output formats now yet clear"
+
+#- name: finl
+#  url: https://www.finl.xyz/
+#
+#  criteria_score:
+#    global_scripts: 1
+#    domainspecific_notations: 1
+#    single_source_publishing_input: 1
+#    single_source_publishing_output: 1
+#    easy_installation: 1
+#    separation_of_concerns: 1
+#    opentype: 1
+#    foss: 1
+#    automation: 1
+#    a11n_l10n_i18n: 1
+#    performance: 1
+#    web_print: 1
+#  criteria_judgment:
+#    global_scripts: ""
+#    domainspecific_notations: ""
+#    single_source_publishing_input: ""
+#    single_source_publishing_output: ""
+#    easy_installation: ""
+#    separation_of_concerns: ""
+#    opentype: ""
+#    foss: ""
+#    automation: ""
+#    a11n_l10n_i18n: ""
+#    performance: ""
+#    web_print: ""
+
+
+# TODO Skribus, LibreOffice
+
+- name: GNU Texmacs
+  wysiwyg: true
+  published: 2003
+  contributors:
+    - Joris van der Hoeven
+    - Free Software Foundation
+  built_with:
+    - C++
+    - Qt
+    - GNU Guile
+    - Freetype 2
+  output:
+    - PDF
+    - Postscript
+    - HTML with MathML
+  license: GPLv3
+  url: https://www.texmacs.org/tmweb/home/welcome.en.html
+
+  criteria_score:
+    global_scripts: 1
+    domainspecific_notations: 1
+    single_source_publishing_input: 1
+    single_source_publishing_output: 1
+    easy_installation: 1
+    separation_of_concerns: 2
+    opentype: 1
+    foss: 1
+    automation: 1
+    a11n_l10n_i18n: 1
+    performance: 1
+    web_print: 3
+  criteria_judgment:
+    global_scripts: "unknown"
+    domainspecific_notations: "unknown, math support, image inclusion possible"
+    single_source_publishing_input: "user interaction"
+    single_source_publishing_output: "PDF, TeX, LaTeX, HTML5 & MathML"
+    easy_installation: "Pre-compiled binary distributions available; dependencies {Qt, Guile Scheme implementation, Freetype 2} are non-trivial"
+    separation_of_concerns: "program logic extensibility through Scheme"
+    opentype: "unknown"
+    foss: "GPLv3 license"
+    automation: "unknown, should be achievable to some extent with Scheme"
+    a11n_l10n_i18n: "unknown"
+    performance: "unknown"
+    web_print: "addresses both"

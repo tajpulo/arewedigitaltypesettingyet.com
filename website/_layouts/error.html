@@ -1,0 +1,19 @@
+---
+title: "Error"
+summary: "error page"
+permalink: "/error"
+draft: false
+---
+
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+  <body>
+    <section>
+      <h2>Error {{ page.errno }}</h2>
+      <p>An error occured:</p>
+      <blockquote><p>{{ page.errmsg }}</p></blockquote>
+    </section>
+  </body>
+</html>

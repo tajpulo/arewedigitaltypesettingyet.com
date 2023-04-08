@@ -1,0 +1,113 @@
+---
+title: "Home"
+summary: "homepage"
+permalink: "/index"
+draft: false
+---
+
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+  <body>
+    <section class="head">
+      <h1>Are we <span class="keyword">digital typesetting</span> yet?</h1>
+    </section>
+
+    <section>
+      <p>Several solutions of differing quality exist, but the field is fragmented and no mature software satisfies all desirable requirements. Most recently, <a href="http://typst.app/">typst</a> joined the competition.</p>
+
+      <h2>Ecosystem</h2>
+
+      <h3>Plaintext approach</h3>
+      <ul class="ecosystem">
+        {% for s in site.data.projects %}
+        {% if s.wysiwyg == true %}{% continue %}{% endif %}
+        <li class="solution">
+          <h3>{{ s.name | escape }}</h3>
+          <a href="{{ s.url | escape }}">Homepage</a> (license: {{ s.license | escape }}) <br/>
+          by <span class="metadata-contributors">{{ s.contributors | join: ", " | escape }}</span> since <time>{{ s.published | escape }}</time> built with <span class="metadata-built-with">{{ s.built_with | join: "/" | escape }}</span> <br/>
+          converts <span class="metadata-input">{{ s.input | join: ", " | escape }}</span> to <span class="metadata-output">{{ s.output | join: " | " | escape }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      
+      <h3><abbr title="What You See Is What You Get">WYSIWYG</abbr> approach</h3>
+      <ul class="ecosystem">
+        {% for s in site.data.projects %}
+        {% if s.wysiwyg == false or s.wysiwyg == none %}{% continue %}{% endif %}
+        <li class="solution">
+          <h3>{{ s.name }}</h3>
+          <a href="{{ s.url }}">Homepage</a> <br/>
+          built with: {% for b in s.built_with %}{{ b }} {% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
+
+      <h2>Digital typesetting systems</h2>
+
+      <h3>Definition</h3>
+      <blockquote><p>“A digital typesetting system is a tool using digital means to arrange text and media into digital documents”</p></blockquote>
+
+      <h3>Desirable features</h3>
+      <dl>
+        <dt>Global scripts</dt>
+          <dd>Unicode support to enable writing in as many writing systems as possible</dd>
+        <dt>Domain-specific notations</dt>
+          <dd>Representations for mathematical formulas, diagrams, chemical formulas, <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML</a> diagrams, music sheets, … should be supported out-of-the-box or through extension mechanisms</dd>
+        <dt>Single Source Publishing</dt>
+          <dd>one input, many output formats; different approaches are taken to account for format-specific features</dd>
+        <dt>Cross-platform</dt>
+          <dd>The software should run on a wide range of devices</dd>
+        <dt>Easy installation</dt>
+          <dd>Installing a sophisticated software stack with many dependencies can be cumbersome for non-tech-savy users. Static executables, tight integration into the OS package manager, <a href="https://www.flatpak.org/">Flatpak</a>, <a href="https://snapcraft.io/">Snapcraft</a>, <a href="https://brew.sh/">Homebrew</a>, <a href="https://appimage.org/">AppImage</a>, <a href="https://webassembly.org/">WebAssembly with WASI</a>, <a href="https://github.com/microsoft/winget-cli">winget</a>, … are various approaches to improve the situation</dd>
+        <dt>Separation of concerns</dt>
+          <dd>A separation between the declaration of content, layout, and program logic is desirable to make each component replaceable once it gets out-of-date. HTML5 (content), CSS3 (layout), and ECMAScript (program logic) showed how to do this on the web stack</dd>
+        <dt>Modern fonts</dt>
+          <dd>Implementation of the features in the <a href="https://learn.microsoft.com/en-us/typography/opentype/spec/">OpenType</a> standard</dd>
+        <dt>FOSS</dt>
+          <dd>free/open source software license according to OSI initiative</dd>
+        <dt>Automation</dt>
+          <dd>The data might come from a database, the network, a <a href="https://en.wikipedia.org/wiki/Customer_relationship_management">CRM</a> or <a href="https://en.wikipedia.org/wiki/Enterprise_resource_planning">ERP</a> software, or many other sources. Generation of documents should be possible for a wide range of input data</dd>
+        <dt>a11n, l10n, i18n</dt>
+          <dd>accessibility (e.g. images must provide alternative text representations for blind people), localization (e.g. numbers should be representable as ‘10,000’ as well as ‘10.000’ depending on the locale settings), internationalization (e.g. support for page size ‘letter’ as well as ‘JIS A’)</dd>
+        <dt>performance</dt>
+          <dd>Software architecture, algorithmic considerations, and concurrency are means to improve the performance which is desirable for users</dd>
+        <dt>web and print</dt>
+          <dd>Reflowable formats (HTML5 with CSS3 with WOFF) as well as paged formats (PDF 2.0, DjVu) shall be supported as output</dd>
+      </dl>
+
+      <h3>Requirements for entering the ecosystem list</h3>
+      <ol>
+        <li>Supports at least Latin and Greek script</li>
+        <li>The Greek alphabet must be usable and inclusion of images must be possible</li>
+        <li>Produces HTML5, PostScript, or PDF 1.4 (or later) output</li>
+        <li>Works on at least two of the three major operating systems (namely Microsoft Windows 11, macOS 13, Linux 6)</li>
+        <li>A pre-compiled release or a installation guide is provided</li>
+        <li>A hyperlink to the description of the input language is provided</li>
+        <li>At least three choices for typefaces exist</li>
+        <li>The source code of the latest release is accessible for reading</li>
+      </ol>
+      <details>
+        <summary>Details</summary>
+        <ul>
+          <li>The last four “desirable features” are not reflected in the “requirements” list</li>
+          <li>This list does <em>not</em> cover: PDF viewers, web services without an option to run the application without connection to a network service, font editors, software which just transforms the input and supplies it to one of the typesetting systems above. Digital typesetting components like <a href="https://harfbuzz.github.io/">HarfBuzz</a> which provide functionality but not I/O itself.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>
+        Maintained by the Austrian club “Verein zur Förderung von digitalem Textsatz” <br/>
+        Inspired by rust community's webpages: “Are we X yet?” where X ∈ {<a href="http://www.areweguiyet.com/">GUI</a>, <a href="https://arewegameyet.com/">game</a>, <a href="https://www.arewelearningyet.com/">learning</a>, <a href="https://arewedistributedyet.com/">distributed</a>, …} <br/>
+        Latest update: <time>2023-04-07</time>
+      </p>
+    </section>
+
+    <section class="foot">
+      &nbsp;
+    </section>
+  </body>
+</html>
